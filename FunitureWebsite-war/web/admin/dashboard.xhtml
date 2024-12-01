@@ -1,0 +1,385 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+    <h:head>
+        <title>DecorVista - Admin</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
+        <!-- Fonts and icons -->
+        <script src="resources/assets/js/plugin/webfont/webfont.min.js"></script>
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="resources/css/plugins.min.css" />
+        <link rel="stylesheet" href="resources/css/kaiadmin.min.css" />
+
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link rel="stylesheet" href="resources/css/demo.css" />
+
+    </h:head>
+    <h:body>
+        <div id="top">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+
+
+            <div class="main-panel">
+                <div class="main-header">
+                    <div class="main-header-logo">
+                        <!-- Logo Header -->
+                        <div class="logo-header" data-background-color="dark">
+                            <a href="index.html" class="logo">
+                                <img
+                                    src="resources/assets/img/kaiadmin/logo_light.svg"
+                                    alt="navbar brand"
+                                    class="navbar-brand"
+                                    height="20"
+                                    />
+                            </a>
+                            <div class="nav-toggle">
+                                <button class="btn btn-toggle toggle-sidebar">
+                                    <i class="gg-menu-right"></i>
+                                </button>
+                                <button class="btn btn-toggle sidenav-toggler">
+                                    <i class="gg-menu-left"></i>
+                                </button>
+                            </div>
+                            <button class="topbar-toggler more">
+                                <i class="gg-more-vertical-alt"></i>
+                            </button>
+                        </div>
+                        <!-- End Logo Header -->
+                    </div>
+                    <!-- Navbar Header -->
+
+                </div>
+
+                <div class="container">
+                    <div class="page-inner">
+                        <div
+                            class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"
+                            >
+                            <div>
+                                <h3 class="fw-bold mb-3">Dashboard</h3>
+
+                            </div>
+
+                        </div>
+                        <div class="row row-card-no-pd">
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6><b>Total Products</b></h6>
+                                                <p class="text-muted">All Products Value</p>
+                                            </div>
+                                            <h4 class="text-info fw-bold"><h:outputText value="#{dashboardMB.totalProducts}" /></h4>
+                                        </div>
+                                        <div class="progress progress-sm">
+                                            <div
+                                                class="progress-bar bg-info w-75"
+                                                role="progressbar"
+                                                aria-valuenow="75"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                ></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <p class="text-muted mb-0">Change</p>
+                                            <p class="text-muted mb-0"><h:outputText value="#{dashboardMB.totalProducts}" /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6><b>Total Supplier</b></h6>
+                                                <p class="text-muted">All Supplier Value</p>
+                                            </div>
+                                            <h4 class="text-success fw-bold">#{dashboardMB.totalSuppliers}</h4>
+                                        </div>
+                                        <div class="progress progress-sm">
+                                            <div
+                                                class="progress-bar bg-success w-25"
+                                                role="progressbar"
+                                                aria-valuenow="25"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                ></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <p class="text-muted mb-0">Change</p>
+                                            <p class="text-muted mb-0">#{dashboardMB.totalSuppliers}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6><b>Total Designer</b></h6>
+                                                <p class="text-muted">All Designer Value</p>
+                                            </div>
+                                            <h4 class="text-danger fw-bold"><h:outputText value="#{dashboardMB.totalDesigners}" /></h4>
+                                        </div>
+                                        <div class="progress progress-sm">
+                                            <div
+                                                class="progress-bar bg-danger w-50"
+                                                role="progressbar"
+                                                aria-valuenow="50"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                ></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <p class="text-muted mb-0">Change</p>
+                                            <p class="text-muted mb-0"><h:outputText value="#{dashboardMB.totalDesigners}" /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6><b>Total Customer </b></h6>
+                                                <p class="text-muted">All Customer Value</p>
+                                            </div>
+                                            <h4 class="text-secondary fw-bold"><h:outputText value="#{dashboardMB.totalCustomers}" /></h4>
+                                        </div>
+                                        <div class="progress progress-sm">
+                                            <div
+                                                class="progress-bar bg-secondary w-25"
+                                                role="progressbar"
+                                                aria-valuenow="25"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                ></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <p class="text-muted mb-0">Change</p>
+                                            <p class="text-muted mb-0"><h:outputText value="#{dashboardMB.totalCustomers}" /></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-head-row">
+                                            <div class="card-title">Feedback Product Statistic</div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-container" style="min-height: 375px">
+                                            <button type="button" id="toggleChartButton" class="btn btn-primary" data-is-five-star="true">
+                                                Show Low Star Count
+                                            </button>
+                                            <canvas id="barChart"></canvas>
+                                        </div>
+                                        <div id="barChart"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <div class="card-head-row">
+                                            <div class="card-title">Daily Sales</div>
+                                            <div class="card-tools">
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-sm btn-label-light dropdown-toggle"
+                                                        type="button"
+                                                        id="dropdownMenuButton"
+                                                        data-bs-toggle="dropdown"
+                                                        aria-haspopup="true"
+                                                        aria-expanded="false"
+                                                        >
+                                                        Export
+                                                    </button>
+                                                    <div
+                                                        class="dropdown-menu"
+                                                        aria-labelledby="dropdownMenuButton"
+                                                        >
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <a class="dropdown-item" href="#"
+                                                           >Something else here</a
+                                                        >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-category">March 25 - April 02</div>
+                                    </div>
+                                    <div class="card-body pb-0">
+                                        <div class="mb-4 mt-2">
+                                            <h1>$4,578.58</h1>
+                                        </div>
+                                        <div class="pull-in">
+                                            <canvas id="dailySalesChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        <h:outputScript>
+            document.addEventListener("DOMContentLoaded", function() {
+            // Kiểm tra xem phần tử canvas có tồn tại không
+            const barChartCanvas = document.getElementById('barChart');
+            if (!barChartCanvas) {
+            console.error("Canvas element not found");
+            return;
+            }
+
+            // Màu sắc cho các cột
+            const backgroundColors = [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)', 
+            'rgba(153, 102, 255, 0.2)' 
+            ];
+
+            const borderColors = [
+            'rgba(255, 99, 132, 1)', 
+            'rgba(54, 162, 235, 1)', 
+            'rgba(255, 206, 86, 1)', 
+            'rgba(75, 192, 192, 1)', 
+            'rgba(153, 102, 255, 1)' 
+            ];
+
+            
+            const topRatedProducts = [
+            <ui:repeat value="#{dashboardMB.topRatedProducts}" var="product">
+                ['#{product[0]}', '#{product[1]}', #{product[3]}], 
+            </ui:repeat>
+            ];
+
+            const lowRatedProducts = [
+            <ui:repeat value="#{dashboardMB.lowRatedProducts}" var="product">
+                ['#{product[0]}', '#{product[1]}', #{product[2]}], 
+            </ui:repeat>
+            ];
+
+            // Biến để giữ chart instance
+            let chart;
+
+            // Hàm vẽ biểu đồ
+            function drawChart(products, label) {
+            const labels = [];
+            const data = [];
+
+            products.forEach((product) => {
+            labels.push(product[1]);
+            data.push(product[2]); 
+            });
+
+           
+            if (chart) {
+            chart.destroy();
+            }
+
+            chart = new Chart(barChartCanvas.getContext('2d'), {
+            type: 'bar',
+            data: {
+            labels: labels,
+            datasets: [{
+            label: label,
+            data: data,
+            backgroundColor: backgroundColors.slice(0, data.length),
+            borderColor: borderColors.slice(0, data.length),
+            borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+            y: {
+            beginAtZero: true,
+            ticks: {
+            stepSize: 1,
+            precision: 0,
+            }
+            }
+            }
+            }
+            });
+            }
+
+         
+            drawChart(topRatedProducts, 'Five Star Count');
+
+            document.getElementById('toggleChartButton').addEventListener('click', function() {
+            if (this.dataset.isFiveStar === 'true') {
+            drawChart(lowRatedProducts, 'Low Star Count');
+            this.textContent = 'Show Five Star Count'; // 
+            } else {
+            drawChart(topRatedProducts, 'Five Star Count');
+            this.textContent = 'Show Low Star Count'; 
+            }
+            this.dataset.isFiveStar = this.dataset.isFiveStar === 'true' ? 'false' : 'true'; 
+            });
+
+            });
+        </h:outputScript>
+
+
+
+    </h:body>
+    <script src="resources/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="resources/assets/js/core/popper.min.js"></script>
+    <script src="resources/assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="resources/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="resources/assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="resources/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="resources/assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="resources/assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="resources/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="resources/assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="resources/assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="resources/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="resources/assets/js/kaiadmin.min.js"></script>
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="resources/assets/js/setting-demo.js"></script>
+    <script src="resources/assets/js/demo.js"></script>
+
+</html>

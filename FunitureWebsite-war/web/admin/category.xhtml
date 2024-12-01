@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+          <title>Decor Vista Admin</title>
+       
+    </h:head>
+
+
+    <h:body class="sb-nav-fixed">
+         <div id="top">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+    <div id="layoutSidenav">
+          
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Categories Management</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Categories Management</li>
+                        </ol>
+                        <h4>Add Category</h4>
+
+                        <h:form id="formCategories">
+                            <h:panelGrid columns="3">
+                              
+                                
+                              <h:outputLabel for="categoryID" value="Category ID"/>
+                                <h:inputText id="categoryID" value="#{categoryMB.category.categoryID}"/>
+                                <h:message for="categoryID"/>
+
+                                <h:outputLabel for="categoryName" value="Category Name"/>
+                                <h:inputText id="categoryName" value="#{categoryMB.category.categoryName}"/>
+                                <h:message for="categoryName"/>
+
+                                <h:outputLabel for="description" value="Description"/>
+                                <h:inputText id="description" value="#{categoryMB.category.description}"/>
+                                <h:message for="description"/>
+
+                                <h:outputText value=""/>
+                                <h:panelGroup>
+                                    <h:commandButton action="#{categoryMB.addCategories()}" value="Add" type="submit"/>
+                                    <h:commandButton action="#{categoryMB.resetForm()}" value="Reset" type="submit"/>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Category Table
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category ID</th>
+                                            <th>Category Name</th>
+                                            <th>Description</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Category ID</th>
+                                            <th>Category Name</th>
+                                            <th>Description</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <c:forEach items="#{categoryMB.showAllCategories()}" var="item1">
+                                            <tr>
+                                                <td><h:outputText value="#{item1.categoryID}" /></td>
+                                                <td><h:outputText value="#{item1.categoryName}" /></td>
+                                                <td><h:outputText value="#{item1.description}" /></td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/e.png" action="#{categoryMB.findCategorybyID(item1.categoryID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/delete.png" action="#{categoryMB.deleteCategories(item1.categoryID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+        <script src="resources/assets/demo/chart-bar-demo.js"/>
+        <script src="resources/assets/demo/chart-area-demo.js"/>
+        <script src="resources/js/scripts.js"/>
+        <script src="resources/js/datatablesSimple.js"/>
+    </h:body>
+</html>

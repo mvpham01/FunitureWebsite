@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+
+
+    </h:head>
+
+
+    <h:body class="sb-nav-fixed">
+        <div id="top">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+        <div id="layoutSidenav">
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Products Management</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Products Management</li>
+                        </ol>
+                        <h4>Add Products</h4>
+
+                        <h:form enctype="multipart/form-data">
+                            <h:panelGrid>
+
+                                <h:inputHidden id="productID" value="#{productsMB.products.productID}"/>
+
+
+                                <h:outputLabel for="productName" value="Product Name"/>
+                                <h:inputText id="productName" value="#{productsMB.products.productName}"/>
+                                <h:message for="productName"/>
+
+                                <h:outputLabel for="price" value="Price"/>
+                                <h:inputText id="price" value="#{productsMB.products.unitPrice}"/>
+                                <h:message for="price"/>
+
+                                <h:outputLabel for="color" value="Color"/>
+                                <h:inputText id="color" value="#{productsMB.products.color}"/>
+                                <h:message for="color"/>
+
+                                <h:outputLabel for="size" value="Size"/>
+                                <h:inputText id="size" value="#{productsMB.products.size}"/>
+                                <h:message for="size"/>
+
+                                <h:outputLabel for="image" value="Image"/>
+                                <h:inputFile id="image" value="#{productsMB.image}"/>
+
+                                <h:message for="image"/>
+
+
+                                <h:outputLabel for="description" value="Description"/>
+                                <h:inputText id="description" value="#{productsMB.products.description}"/>
+                                <h:message for="description"/>
+
+                                <h:outputLabel for="subcategory" value="Subcategory"/>
+                                <h:selectOneMenu value="#{productsMB.subcategoryID}" id="subcategories">
+                                    <f:selectItems value="#{subcategoriesMB.showAllSubcategories()}" var="itemSub" itemValue="#{itemSub.subcategoryID}" 
+                                                   itemLabel="#{itemSub.subcategoryID} #{itemSub.subcategoryName}"/>  
+                                </h:selectOneMenu>
+
+                                <h:outputLabel for="supplier" value="Supplier"/>
+                                <h:selectOneMenu value="#{productsMB.supplierID}" id="suppliers">
+                                    <f:selectItems value="#{supplierMB.showAllSuppliers()}" var="itemSup" itemValue="#{itemSup.supplierID}" 
+                                                   itemLabel="#{itemSup.supplierID} #{itemSup.supplierName}"/>  
+                                </h:selectOneMenu>
+
+
+                                <h:outputText value=""/>
+                                <h:panelGroup>
+                                    <h:commandButton action="#{productsMB.addProducts()}" value="Add" type="submit"/>
+                                    <h:commandButton action="#{productsMB.resetForm()}" value="Reset" type="submit"/>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Products Table
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product ID</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Color</th>
+                                            <th>Size</th>
+                                            <th>Image</th>
+
+                                            <th>Description</th>
+                                            <th>Subcategory</th>
+                                            <th>Supplier</th>
+
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Product ID</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Color</th>
+                                            <th>Size</th>
+                                            <th>Image</th>
+
+                                            <th>Description</th>
+                                            <th>Subcategory</th>
+                                            <th>Supplier</th>
+
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <c:forEach items="#{productsMB.showAllProducts()}" var="item1">
+                                            <tr>
+                                                <td><h:outputText value="#{item1.productID}" /></td>
+                                                <td><h:outputText value="#{item1.productID}" /></td>
+                                                <td><h:outputText value="#{item1.unitPrice}" /></td>
+                                                <td><h:outputText value="#{item1.color}" /></td>
+                                                <td><h:outputText value="#{item1.size}" /></td>
+                                                <td>
+                                                    <h:graphicImage value="resources/image/products/#{item1.image}" width="100px"/>
+                                                </td>
+                                                <td><h:outputText value="#{item1.description}" /></td>
+                                                <td><h:outputText value="#{item1.subcategoryID.subcategoryName}" /></td>
+                                                <td><h:outputText value="#{item1.supplierID.supplierName}" /></td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/e.png" action="#{productsMB.findProductforUpdate(item1.productID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/delete.png" action="#{productsMB.deleteProducts(item1.productID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+        <script src="resources/js/scripts.js"/>
+        <script src="resources/js/datatablesSimple.js"/>
+    </h:body>
+</html>

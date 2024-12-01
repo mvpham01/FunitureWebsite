@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+         <title>Decor Vista Admin</title>
+       
+       
+    </h:head>
+
+
+    <h:body class="sb-nav-fixed">
+         <div id="top">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"/>
+            </ui:insert>
+        </div>
+         <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Suppliers Management</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Suppliers Management</li>
+                        </ol>
+                        <h4>Add Suppliers</h4>
+
+                        <h:form id="formSuppliers">
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="supplierID" value="Supplier ID"/>
+                                <h:inputText id="supplierID" value="#{supplierMB.suppliers.supplierID}"/>
+                                <h:message for="supplierID"/>
+
+                                <h:outputLabel for="supplierName" value="Supplier Name"/>
+                                <h:inputText id="supplierName" value="#{supplierMB.suppliers.supplierName}"/>
+                                <h:message for="supplierName"/>
+
+                                <h:outputLabel for="email" value="Email"/>
+                                <h:inputText id="email" value="#{supplierMB.suppliers.email}"/>
+                                <h:message for="email"/>
+
+                                <h:outputLabel for="phone" value="Phone"/>
+                                <h:inputText id="phone" value="#{supplierMB.suppliers.phone}"/>
+                                <h:message for="phone"/>
+                                <h:outputText value=""/>
+                                <h:panelGroup>
+                                    <h:commandButton action="#{supplierMB.addSuppliers()}" value="Add" type="submit"/>
+                                    <h:commandButton action="#{supplierMB.resetForm()}" value="Reset" type="submit"/>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Suppliers Table
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Supplier ID</th>
+                                            <th>Supplier Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Supplier ID</th>
+                                            <th>Supplier Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <c:forEach items="#{supplierMB.showAllSuppliers()}" var="item1">
+                                            <tr>
+                                                <td><h:outputText value="#{item1.supplierID}" /></td>
+                                                <td><h:outputText value="#{item1.supplierName}" /></td>
+                                                <td><h:outputText value="#{item1.email}" /></td>
+                                                <td><h:outputText value="#{item1.phone}" /></td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/e.png" action="#{supplierMB.findSupplierbyID(item1.supplierID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                                <td>
+                                                    <h:form>
+                                                        <h:commandButton image="resources/image/delete.png" action="#{supplierMB.deleteSuppliers(item1.supplierID)}" style="width: 30px" type="submit" />
+                                                    </h:form>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+
+        <script src="resources/js/scripts.js"/>
+        <script src="resources/js/datatablesSimple.js"/>
+    </h:body>
+</html>

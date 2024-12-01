@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Your Favorite Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="path/to/your/styles.css"/> <!-- Optional custom CSS -->
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <h2>Your Favorite Products</h2>
+
+        <h:panelGrid columns="3" cellpadding="10">
+            <ui:repeat value="#{favoritesMB.favoriteProducts}" var="item">
+                <h:panelGroup>
+                    <div class="shop-item">
+                        <div class="inner-box">
+                            <div class="image">
+                                <h:graphicImage value="../admin/resources/image/products/#{item.image}" alt="#{item.productName}" style="width: 200px; height: 200px" />
+                            </div>
+                            <div class="lower-content">
+                                <h3>
+                                    <h:commandLink action="#{productsMB.findProductforDetail(item.productID)}">
+                                        <h:outputText value="#{item.productName}" />
+                                    </h:commandLink>
+                                </h3>
+                                <div class="price">
+                                    <h:outputText value="#{item.unitPrice}" /> VND
+                                </div>
+                                <h:form>
+                                    <h:commandLink action="#{favoritesMB.removeFromFavorites(item)}" styleClass="fa fa-trash" title="Remove from favorites" />
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </h:panelGroup>
+            </ui:repeat>
+        </h:panelGrid>
+
+        <h:messages globalOnly="true" />
+    </h:form>
+
+</h:body>
+</html>

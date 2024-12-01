@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+          <title>Decor Vista</title>
+        <style>
+            
+</style>
+    </h:head>
+    <h:body>
+
+        <ui:insert name="header">
+            <ui:include src="../header.xhtml"/>
+        </ui:insert>
+
+        <section class="page-title" style="background-image:url(../resources/images/background/5.jpg)">
+            <div class="auto-container">
+                <h2>Cart</h2>
+                <ul class="page-breadcrumb">
+                    <li><a href="../home.xhtml">home</a></li>
+                    <li>Shoping Cart</li>
+                </ul>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+        <!--Cart Section-->
+    <h:form>
+        <section class="cart-section">
+        <div class="auto-container">
+
+            <div class="cart-outer">
+                <div class="table-outer">
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+                            	<th>Images</th>
+                            	<th class="prod-column">Product Name</th>
+                                <th>Size</th>
+                                 <th>Quantity</th>
+                                <th class="price">Unit Price</th>
+                               
+                                <th>Total Price</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <h:dataTable value="#{cartProcessMB.cartMap.entrySet()}" var="iCart" class="tbl-cart" >
+                        	<tr>
+                                <td class="prod-column">
+                                    <div class="column-box">
+                                        <figure class="prod-thumb"><a href="#">
+                                                <h:column><h:graphicImage value="../admin/resources/image/products#{iCart.key.image}" style="width:100px"/>
+                                            </h:column></a></figure>
+                                    </div>
+                                </td>
+                                <td><h4 class="prod-title"> <h:column>
+                                   #{iCart.key.productName}
+                                </h:column></h4></td>
+                                <td class="sub-total"> <h:column>
+                                    #{iCart.key.size}
+                                </h:column></td>
+                                <td class="qty"><div class="item-quantity"><input class="quantity-spinner" type="text" value="2" name="quantity"/>
+                                            <h:column>
+                                     <h:commandButton value=" - " action="#{cartProcessMB.decreaseCart(iCart.key.productID,iCart.value-1)}" class="btn btn-primary btn-sm"/> 
+                                        <h:inputText id="quantity" value="#{iCart.value}" maxlength="4" size="4" readonly="true"/>
+                                        <h:commandButton value=" + " action="#{cartProcessMB.increaseCart(iCart.key.productID,iCart.value+1)}" class="btn btn-primary btn-sm"/>
+                                            </h:column>
+                                        </div></td>
+                                    <td class="total-price">
+                                          <h:column>
+                                   
+                                        <h:outputText value="#{iCart.key.unitPrice}">
+                                            <f:convertNumber currencySymbol="$" type="currency" />
+                                        </h:outputText>  
+                                        </h:column>       
+                                    </td>
+                               <td class="total-price">
+                                          <h:column>
+                                   
+                                        <h:outputText value="#{iCart.value * iCart.key.unitPrice}" > 
+                                            <f:convertNumber currencySymbol="$" type="currency" />
+                                        </h:outputText>   
+                                        </h:column>       
+                                    </td>
+                                    <td><h:column>
+                                        <h:commandLink class="btnRemoveAction" action="#{cartProcessMB.removeItemCart(iCart.key.productID)}">
+                                            <h:graphicImage value="../resources/images/icons/delete.png" alt="Remove Item" style="width:30px"/>
+                                        </h:commandLink>
+                                    </h:column>
+                                    </td>
+                            </tr>
+                        </h:dataTable>         
+                        </tbody>
+                    </table>
+              
+               
+                            </div>
+       
+        
+                <div class="mt-5">
+                    <div class="row clearfix">
+                        <div class="column col-lg-7 col-md-5 col-sm-12">
+                        </div>
+                        <div class="column col-lg-5 col-md-7 col-sm-12">
+                            <!--Totals Table-->
+                            <ul class="totals-table">
+                                <li><h3>Cart Totals</h3></li>
+                                <li class="clearfix"><span class="col">Total Product</span><span class="col"><h:outputText value="#{cartProcessMB.sumProductCart()}"></h:outputText></span></li>
+                                <li class="clearfix"><span class="col">Total Price</span><span class="col"><h:outputText value="#{cartProcessMB.sumCart()}" style="float:right"><f:convertNumber currencySymbol="$" type="currency" /></h:outputText></span></li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-end">
+                <div class="col-8"></div>
+                <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                </div>
+            </div>
+        </div>
+            </section>
+</h:form>
+
+
+        <script>
+            function removeItem(event) {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
+
+                // Lấy phần tử hàng cha (tr) của nút đã nhấp
+                var row = event.target.closest('tr');
+
+                // Loại bỏ phần tử hàng (tr) khỏi bảng
+                row.parentNode.removeChild(row);
+            }
+        </script>
+
+        <ui:insert name="bottom">
+            <ui:include src="../footter.xhtml"/>
+        </ui:insert>
+        <script src="../resources/js/jquery.js"></script>
+        <script src="../resources/js/popper.min.js"></script>
+        <script src="../resourcesjs/jquery-ui.js"></script>
+        <script src="../resources/js/bootstrap.min.js"></script>
+        <script src="../resources/js/jquery.fancybox.js"></script>
+        <script src="../resources/js/isotope.js"></script>
+        <script src="../resources/js/owl.js"></script>
+        <script src="../resources/js/wow.js"></script>
+        <script src="../resources/js/validate.js"></script>
+        <script src="../resources/js/appear.js"></script>
+        <script src="../resources/js/scrollbar.js"></script>
+        <script src="../resources/js/script.js"></script>
+    </h:body>
+</html>

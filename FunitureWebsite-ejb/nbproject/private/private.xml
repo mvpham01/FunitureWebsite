@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Deliveries.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/DeliveriesFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Categories.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FAQsFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/FAQs.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/AbstractFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Consultations.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/CategoriesFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FeedbacksFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/ProductsFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FavoritesFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Suppliers.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/ProjectDesigner.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/conf/META-INF/glassfish-resources.xml</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Subcategories.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/DesignerFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/DesignerFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FeedbackDesFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/CategoriesFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Products.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/ProductsFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/ConsultationsFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FeedbacksFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Users.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Favorites.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FAQsFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/ConsultationsFacadeLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Designer.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/FeedbackDesFacade.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeansprocess/CartSBLocal.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/Feedbacks.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/entitybeans/FeedbackDes.java</file>
+            <file>file:/D:/NetBeansProjects/FunitureWebsite/FunitureWebsite/FunitureWebsite-ejb/src/java/com/sessionbeans/DeliveriesFacadeLocal.java</file>
+        </group>
+    </open-files>
+</project-private>

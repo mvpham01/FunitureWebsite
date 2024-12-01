@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+         <title>Decor Vista</title>
+        <style>
+            /* CSS cho số lượng */
+            .quantity {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative; /* Cho phép định vị tương đối */
+            }
+
+            .qty-text {
+                height: 46px;
+                padding: 5px 35px; /* Để tạo không gian để nút */
+                width: 130px;
+                -moz-appearance: textfield;
+                -webkit-appearance: textfield;
+                appearance: textfield;
+                font-size: 14px;
+                border: none;
+                background-color: #f2f4f5;
+                text-align: center;
+            }
+
+            .qty-btn {
+                background-color: grey;
+                color: #fff;
+                border: none;
+                padding: 5px 12px;
+                cursor: pointer;
+                border-radius: 5px;
+                font-size: 16px;
+                position: absolute; /* Để đặt vị trí tuyệt đối */
+                top: 50%; /* Đặt vị trí theo chiều dọc */
+                transform: translateY(-50%); /* Để căn giữa theo chiều dọc */
+            }
+
+            .qty-minus {
+                left: 5px; /* Đặt vị trí bên trái */
+            }
+
+            .qty-plus {
+                right: 5px; /* Đặt vị trí bên phải */
+            }
+
+            .qty-btn:hover {
+                background-color: infotext;
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <ui:insert name="header">
+            <ui:include src="../header.xhtml"/>
+        </ui:insert>
+        <section class="page-title" style="background-image:url(../resources/images/background/5.jpg)">
+            <div class="auto-container">
+                <h2>Product Details</h2>
+                <ul class="page-breadcrumb">
+                    <li><a href="./shop.xhtml">shop</a></li>
+                    <li>Product Details</li>
+                </ul>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+        <!--Shop Single Section-->
+        <section class="shop-single-section">
+            <div class="auto-container">
+
+                <div class="shop-single">
+                    <div class="product-details">
+                        <h:form>
+
+                            <f:event type="preRenderView" listener="#{productsMB.loadSelectedProduct}"  />
+                            <!--Basic Details-->
+                            <div class="basic-details">
+                                <div class="row clearfix">
+                                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                                        <figure class="image-box"><h:graphicImage value="../admin/resources/image/products/#{productsMB.selectedProduct.image}" alt="" styleClass="lightbox-image" /></figure>
+                                    </div>
+                                    <div class="info-column col-lg-6 col-md-12 col-sm-12">
+                                        <div class="inner-column">
+                                            <h4><h:outputText value="#{productsMB.selectedProduct.productName}"/></h4>
+                                            <div class="text"><h:outputText value="#{productsMB.selectedProduct.description}"/></div>
+                                            <div class="price">Price : <span><h:outputText value="#{productsMB.selectedProduct.unitPrice}"/>VND</span></div>
+                                            <div class="price">Size : <span><h:outputText value="#{productsMB.selectedProduct.size}"/></span></div>
+                                            <div class="price">Color : <span><h:outputText value="#{productsMB.selectedProduct.color}"/></span></div>
+                                            <div class="price">Supplier : <span><h:outputText value="#{productsMB.selectedProduct.supplierID.supplierName}"/></span></div>
+                                            <div class="other-options clearfix">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></h:form>
+
+                        <!--Basic Details-->
+                        <!--Product Info Tabs-->
+                        <div class="product-info-tabs">
+                            <!--Product Tabs-->
+                            <div class="prod-tabs tabs-box">
+
+                                <!--Tab Btns-->
+                                <ul class="tab-btns tab-buttons clearfix">
+                                    <li data-tab="#prod-details" class="tab-btn active-btn">Descripton</li>
+                                    <li data-tab="#prod-spec" class="tab-btn">Specification</li>
+                                    <li data-tab="#prod-reviews" class="tab-btn">Review (2)</li>
+                                </ul>
+
+                                <!--Tabs Container-->
+                                <div class="tabs-content">
+
+                                    <!--Tab / Active Tab-->
+                                    <div class="tab active-tab" id="prod-details">
+                                        <div class="content">
+                                            <h:form>
+
+                                                <f:event type="preRenderView" listener="#{productsMB.loadSelectedProduct}"  />
+
+                                                <h:outputText value="#{productsMB.selectedProduct.description}"/>
+
+
+                                       
+                                    </h:form>
+                                </div>
+                            </div>
+
+                            <!--Tab-->
+                            <div class="tab" id="prod-spec">
+                                <div class="content">
+                                    <p>Furniture products offer a perfect blend of aesthetics and functionality, elevating your living space. With sophisticated designs and high-quality materials, these pieces not only provide comfort and convenience but also reflect your unique style and personality. From chairs, tables, and beds to cabinets and shelves, every detail is meticulously crafted to ensure durability and safety during use. Whether your preference is modern, classic, or minimalist, furniture is designed to meet all customer needs, creating an ideal and elegant living environment.</p>
+                                </div>
+                            </div>
+
+                            <!--Tab-->
+                            <div class="tab" id="prod-reviews">
+                                <h2 class="title">2 Reviews For win Your Friends</h2>
+                                <!--Reviews Container-->
+                                <div class="comments-area">
+                                    <!--Comment Box-->
+                                    <div class="comment-box">
+                                        <div class="comment">
+                                            <div class="author-thumb"><img src="../resources/images/resource/author-1.jpg" alt=""/></div>
+                                            <div class="comment-inner">
+                                                <div class="comment-info clearfix">Steven Rich – Sep 17, 2016:</div>
+                                                <div class="rating">
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star light"></span>
+                                                </div>
+                                                <div class="text">How all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Comment Box-->
+                                    <div class="comment-box reply-comment">
+                                        <div class="comment">
+                                            <div class="author-thumb"><img src="../resources/images/resource/author-2.jpg" alt=""/></div>
+                                            <div class="comment-inner">
+                                                <div class="comment-info clearfix">William Cobus – Aug 21, 2016:</div>
+                                                <div class="rating">
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star-half-empty"></span>
+                                                </div>
+                                                <div class="text">There anyone who loves or pursues or desires to obtain pain itself, because it is pain sed, because occasionally circumstances occur some great pleasure.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Comment Form -->
+                                <div class="shop-comment-form">	
+                                    <h2>Add Your Review</h2>
+                                    <div class="rating-box">
+                                        <div class="text"> Your Rating:</div>
+                                        <div class="rating">
+                                            <a href="#"><span class="fa fa-star"></span></a>
+                                        </div>
+                                        <div class="rating">
+                                            <a href="#"><span class="fa fa-star"></span><span class="fa fa-star"></span></a>
+                                            <a href="#"></a>
+                                        </div>
+                                        <div class="rating">
+                                            <a href="#"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></a>
+                                        </div>
+                                        <div class="rating">
+                                            <a href="#"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></a>
+                                        </div>
+                                        <div class="rating">
+                                            <a href="#"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></a>
+                                        </div>
+                                    </div>
+                                    <form method="post" action="templateshub.net">
+                                        <div class="row clearfix">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label>First Name *</label>
+                                                <input type="text" name="username" placeholder="" required=""/>
+                                            </div>
+
+                                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                                <label>Last Name*</label>
+                                                <input type="email" name="email" placeholder="" required=""/>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                                <label>Email*</label>
+                                                <input type="text" name="number" placeholder="" required=""/>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                                <label>Your Comments*</label>
+                                                <textarea name="message" placeholder=""></textarea>
+                                            </div>
+
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
+                                                <button class="theme-btn btn-style-four" type="submit" name="submit-form"><span class="txt">Submit now</span></button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Product Info Tabs-->
+
+            </div>
+            </div>
+
+            </div>
+        </section>
+
+
+
+
+        <ui:insert name="bottom">
+            <ui:include src="../footter.xhtml"/>
+        </ui:insert>
+        <script src="../resources/js/jquery.js"></script>
+        <script src="../resources/js/popper.min.js"></script>
+        <script src="../resourcesjs/jquery-ui.js"></script>
+        <script src="../resources/js/bootstrap.min.js"></script>
+        <script src="../resources/js/jquery.fancybox.js"></script>
+        <script src="../resources/js/isotope.js"></script>
+        <script src="../resources/js/owl.js"></script>
+        <script src="../resources/js/wow.js"></script>
+        <script src="../resources/js/validate.js"></script>
+        <script src="../resources/js/appear.js"></script>
+        <script src="../resources/js/scrollbar.js"></script>
+        <script src="../resources/js/script.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.tab-btn').click(function () {
+                    var tab_id = $(this).attr('data-tab');
+
+                    $('.tab-btn').removeClass('active-btn');
+                    $('.tab').removeClass('active-tab');
+
+                    $(this).addClass('active-btn');
+                    $(tab_id).addClass('active-tab');
+                });
+            });
+        </script>
+    </h:body>
+</html>
